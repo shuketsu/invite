@@ -69,7 +69,7 @@
             background: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
             padding: 15px;
-            margin-bottom: 35px; /* Увеличили отступ, чтобы отодвинуть кнопки */
+            margin-bottom: 35px; 
             text-align: left;
         }
 
@@ -87,7 +87,7 @@
 
         .btn-container {
             display: flex;
-            justify-content: space-between; /* Разнесли кнопки по краям */
+            justify-content: space-between;
             padding: 0 10px;
             position: relative;
             height: 50px;
@@ -118,11 +118,10 @@
             background: var(--danger);
             color: white;
             position: absolute;
-            right: 10px; /* Изначально стоит далеко справа */
+            right: 10px;
             box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
         }
 
-        /* Экраны фидбэка */
         .screen {
             display: none;
         }
@@ -184,16 +183,16 @@
 
         const BACKEND_URL = 'https://invite-backend-rg0w.onrender.com/api/reply'; 
 
-        // Автоматически ставим текущую дату дня открытия
+        
         const today = new Date();
         const options = { month: 'long', day: 'numeric', weekday: 'short' };
         currentDateSpan.innerText = today.toLocaleDateString('ru-RU', options);
 
-        // Логика убегания кнопки "Нет"
+        
         function moveButton() {
             const card = document.getElementById('inviteCard');
             
-            // Расчет случайных координат строго внутри карточки
+           
             const maxX = card.clientWidth - noBtn.offsetWidth - 20;
             const maxY = card.clientHeight - noBtn.offsetHeight - 20;
             
@@ -210,7 +209,7 @@
             moveButton();
         });
 
-        // Если всё-таки умудрились нажать "Нет"
+       
         noBtn.addEventListener('click', () => {
             mainScreen.style.display = 'none';
             screenNo.style.display = 'block';
@@ -224,7 +223,7 @@
             sendReply('Ура! Пупсик согласен на пиво на Brignole после 20:00! 🎉');
         });
 
-        // Функция отправки на бэкенд
+        
         function sendReply(text) {
             fetch(BACKEND_URL, {
                 method: 'POST',
